@@ -120,13 +120,7 @@ function wpfbogp_build_head() {
 			echo '<meta property="fb:app_id" content="' . esc_attr( apply_filters( 'wpfbogp_app_id', $options['wpfbogp_app_id'] ) ) . '"/>' . "\n";
 		}
 
-		// do url stuff
-		if ( is_front_page() ) {
-			$wpfbogp_url = home_url();
-		} else {
-			$wpfbogp_url = 'http' . ( is_ssl() ? 's' : '' ) . '://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-		}
-		echo '<meta property="og:url" content="' . esc_url( user_trailingslashit( trailingslashit( apply_filters( 'wpfbogp_url', $wpfbogp_url ) ) ) ) . '"/>' . "\n";
+		echo '<meta property="og:url" content="' . esc_url( user_trailingslashit( trailingslashit( apply_filters( 'wpfbogp_url', home_url() . $_SERVER['REQUEST_URI'] ) ) ) ) . '"/>' . "\n";
 
 		// do title stuff
 		if ( is_home() || is_front_page() ) {
