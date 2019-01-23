@@ -188,6 +188,7 @@ function wpfbogp_build_head() {
 
 		// Make sure there were images passed as an array and loop through/output each
 		if ( ! empty( $wpfbogp_images ) && is_array( $wpfbogp_images ) ) {
+			$wpfbogp_images = array_unique($wpfbogp_images);
 			foreach ( $wpfbogp_images as $image ) {
 				echo '<meta property="og:image" content="' . esc_url( apply_filters( 'wpfbogp_image', $image ) ) . '"/>' . "\n";
 			}
